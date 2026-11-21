@@ -20,6 +20,11 @@ Fixed inputs, kept as stored (no producer in any repository): the source configu
 sampled once), and `g4ref-events-tpc-933e631d` (two Geant4 events of SBND, a muon of 800 MeV and an electron of 30 MeV,
 the notebooks' examples).
 
+`g4ref-gun-sbnd-9fd555c0` (notebook 02's many events: 100 muons of 800 MeV and 100 electrons of 30 MeV at random
+places and directions in SBND's TPCs) is made by `events.sh` (lumen's `tools/g4ref/events.py`, on the GDML as
+written): its manifest entry gives the binary, the region and the flags, and `events.json` every event's vertex,
+direction and seed.
+
 ## What g4ref changes in Geant4
 
 g4ref (lumen's `tools/g4ref/g4ref.cc`) links Geant4 10.7.4 unmodified (`G4OpticalPhysics`, photons as primaries). Its

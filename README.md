@@ -22,8 +22,8 @@ first use from this repository's release assets into `LUMEN_DATA`, or `data` und
 
 Five notebooks in `notebooks/`, with SBND as the running example. They need a GPU (5 to 12 minutes each on an
 RTX 2080 Ti) and the `notebooks` extra (above). They fetch the reference data they read on first use: SBND's GDML
-and channel map (0.3 MB download) and two Geant4 events (1 MB); notebook 02 also SBND's Geant4 references (46 MB).
-All of this repository's reference products together are 65 MB. `LUMEN_NOTEBOOKS` names where the notebooks put the
+and channel map (0.3 MB download) and two Geant4 events (1 MB); notebook 02 also SBND's Geant4 references (46 MB)
+and its many Geant4 events (63 MB). All of this repository's reference products together are 128 MB. `LUMEN_NOTEBOOKS` names where the notebooks put the
 converted detector (default `./lumen-notebooks`).
 
 | Notebook | What it shows |
