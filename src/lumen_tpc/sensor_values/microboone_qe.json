@@ -1,0 +1,44 @@
+{
+ "schema": "lumen-sensor-values/1",
+ "model": "lumen:sensor",
+ "name": "microboone_qe",
+ "readout": "pe",
+ "provenance": {
+  "source": "uboone/ubevt 14ad3eb1397a6ced617eba36dc5d035a64bd196e (https://github.com/uboone/ubevt/tree/14ad3eb1397a6ced617eba36dc5d035a64bd196e): ubevt/Utilities/pmtconfig_microboone.fcl; uboone/ubsim df3e2431947564443289d1a9e2cc1bedb0fec642 (https://github.com/uboone/ubsim/tree/df3e2431947564443289d1a9e2cc1bedb0fec642): ubsim/OpticalDetectorSim/UBOpticalChConfig.cc",
+  "status": "transcribed",
+  "fields": {
+   "qe": "pmtconfig_microboone.fcl:97-124: QE, one value on every PMT channel (its logic channels carry 1); per real photon: ubsim divides it by ScintPreScale before applying it to the tracked photons (UBOpticalChConfig.cc:80)"
+  },
+  "choices": {
+   "efficiency": "1: no per-sensor scale beyond the detection efficiency in qe",
+   "t_offset_ns": "0: readout pe has no time",
+   "gain": "1: readout pe counts photoelectrons",
+   "dark_rate_hz": "0: readout pe counts photoelectrons from light only",
+   "frontend/sampling_ns": "1: unused by readout pe",
+   "frontend/window_ns": "0: no integration window (each photoelectron its own pulse or hit)",
+   "frontend/charge_step_pe": "0.25: the charge histogram's step, a quarter of a photoelectron",
+   "frontend/charge_max_pe": "4: the charge histogram's top"
+  }
+ },
+ "qe": {
+  "band_edges_nm": [],
+  "values": [
+   0.0093
+  ]
+ },
+ "ce": null,
+ "efficiency": 1.0,
+ "t_offset_ns": 0.0,
+ "tts": null,
+ "charge": null,
+ "gain": 1.0,
+ "threshold": null,
+ "dark_rate_hz": 0.0,
+ "frontend": {
+  "sampling_ns": 1.0,
+  "unit": "pe",
+  "window_ns": 0.0,
+  "charge_step_pe": 0.25,
+  "charge_max_pe": 4.0
+ }
+}

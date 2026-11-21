@@ -1,0 +1,33 @@
+{
+ "note": "DUNE's public GDML, as published, stored xz-compressed (<name>.gdml.xz); sha256 and bytes are of the decompressed file, checked when it is converted (lumen_tpc.inputs)",
+ "files": {
+  "dune10kt_v6_refactored_nowires.gdml": {
+   "url": "https://raw.githubusercontent.com/DUNE/dunecore/1861034bf807a2f556a476615c0a0f212dc43a0e/dunecore/Geometry/gdml/dune10kt_v6_refactored_nowires.gdml",
+   "repo": "https://github.com/DUNE/dunecore",
+   "commit": "1861034bf807a2f556a476615c0a0f212dc43a0e",
+   "bytes": 3493648,
+   "sha256": "a6705f74cd70ba32f358a3ef582ec78131f8682566b1a0ca3d03c17bb05cfc0f"
+  },
+  "dune10kt_v6_refactored_1x2x6.gdml": {
+   "url": "https://raw.githubusercontent.com/DUNE/dunecore/1861034bf807a2f556a476615c0a0f212dc43a0e/dunecore/Geometry/gdml/dune10kt_v6_refactored_1x2x6.gdml",
+   "repo": "https://github.com/DUNE/dunecore",
+   "commit": "1861034bf807a2f556a476615c0a0f212dc43a0e",
+   "bytes": 3725542,
+   "sha256": "c34f78bfdee716adf1177c0f4893de89c5bfb42b2b80f479744f5d9820e8059a"
+  },
+  "dunevd10kt_3view_30deg_v6_refactored_nowires.gdml": {
+   "url": "https://raw.githubusercontent.com/DUNE/dunecore/1861034bf807a2f556a476615c0a0f212dc43a0e/dunecore/Geometry/gdml/dunevd10kt_3view_30deg_v6_refactored_nowires.gdml",
+   "repo": "https://github.com/DUNE/dunecore",
+   "commit": "1861034bf807a2f556a476615c0a0f212dc43a0e",
+   "bytes": 394864,
+   "sha256": "27e1a7fcd741c2f5f98d471d2c17a7b4e2aba34a93c9ddc64d8bdf6b6a634140"
+  },
+  "nd_hall_with_lar_tms_sand_TDR_Production_geometry_v_1.0.3.gdml": {
+   "url": "https://raw.githubusercontent.com/DUNE/2x2_sim/7c621864155483fa30d741a69481fafd8fbcb5a8/geometry/nd_hall_with_lar_tms_sand_TDR_Production_geometry_v_1.0.3.gdml",
+   "repo": "https://github.com/DUNE/2x2_sim",
+   "commit": "7c621864155483fa30d741a69481fafd8fbcb5a8",
+   "bytes": 66991312,
+   "sha256": "566f1318d4a48f67e786b880db0c0eca49d7794ace9f87cf3603f77b3751a612"
+  }
+ }
+}

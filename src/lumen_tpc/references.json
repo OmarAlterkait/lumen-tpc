@@ -1,0 +1,428 @@
+{
+ "schema": "lumen-references/1",
+ "checks": {
+  "charge": [
+   {
+    "detector": "sbnd",
+    "dt": 1.0,
+    "name": "sbnd",
+    "nt": 1000,
+    "photons_factor": 1.0,
+    "reference": "sbnd-g4ref-export",
+    "split_ev": 6.19
+   },
+   {
+    "detector": "microboone",
+    "dt": 1.0,
+    "name": "microboone",
+    "note": "The GDML places the three wire planes as siblings overlapping volTPCActive; lumen's ownership gives the shared region to the planes (proved inside it), so their wires shadow the PMTs. The reference is g4ref on the overlap-free GDML (lumen.compare.ownership); the run on the original GDML, reported beside it, sees 1/0.784 times that light (G4(export) / G4(original) 0.7843 +- 0.0008, measured 2026-11-19): the overlap effect",
+    "nt": 1000,
+    "photons_factor": 1.0,
+    "reference": "microboone-g4ref-export"
+   }
+  ],
+  "geometry": [
+   {
+    "detector": "sbnd",
+    "gdml": "sbnd_v02_00_full_simulation.gdml",
+    "name": "sbnd",
+    "reference": "gdml"
+   },
+   {
+    "detector": "microboone",
+    "gdml": "microboone.gdml",
+    "name": "microboone",
+    "reference": "gdml"
+   }
+  ],
+  "gradients": [
+   {
+    "detector": "sbnd",
+    "name": "sbnd",
+    "reverse": true,
+    "sources": [
+     [
+      1.0,
+      0.0,
+      2.5
+     ],
+     [
+      -1.0,
+      0.5,
+      1.5
+     ]
+    ],
+    "wavelength": 128.0
+   },
+   {
+    "detector": "microboone",
+    "name": "microboone",
+    "sources": [
+     [
+      0.0,
+      0.0,
+      0.0
+     ],
+     [
+      0.5,
+      0.3,
+      2.0
+     ],
+     [
+      -0.5,
+      -0.3,
+      -3.0
+     ]
+    ],
+    "volume": "volTPCActive",
+    "wavelength": 128.0
+   }
+  ],
+  "mc": [
+   {
+    "detector": "sbnd",
+    "name": "sbnd",
+    "photons": "sbnd_photons.npz",
+    "photons_per_seed": 65536,
+    "record": "sbnd_record.npz",
+    "reference": "mc-gate-tpc-3b241f1",
+    "seeds": 16
+   },
+   {
+    "detector": "microboone",
+    "name": "microboone",
+    "photons": "microboone_photons.npz",
+    "photons_per_seed": 65536,
+    "record": "microboone_record.npz",
+    "reference": "mc-gate-tpc-3b241f1",
+    "seeds": 16
+   }
+  ]
+ },
+ "products": {
+  "g4ref-events-tpc-933e631d": {
+   "files": {
+    "sbnd_mu800.npz": "sha256:0cf1bc28a0ab47460449345d2837602b5e917b3499cc1df38e5b996ec38a6b91",
+    "sbnd_e30.npz": "sha256:70815034e4027eb81abcad902972301321232736947760b971d5e469ae1966cc"
+   },
+   "id": "g4ref-events-tpc-933e631d",
+   "producer": {
+    "tool": "g4ref",
+    "binary_sha256": "933e631d812bced3c1215f1a9dbd5b346d044901048f68a55fa8df1980377dcd",
+    "geant4": "10.7.4",
+    "physics": "a particle gun (one particle per Geant4 event) with G4OpticalPhysics; the charged steps and the hits dumped",
+    "events": "event 0 of chunk 0 of each run, written by lumen.compare.event.extract (steps in m, ns, eV; hits; the sensor table)"
+   },
+   "reduced": "2026-11-19",
+   "url": "https://github.com/OmarAlterkait/lumen-tpc/releases/download/v0.2.0/g4ref-events-tpc-933e631d.tar.gz",
+   "sha256": "sha256:aecf28935d32953c5c605345e4175d379fb7db38232be3ebc917e7c9ad7c58be"
+  },
+  "microboone-g4ref-original": {
+   "chunks": 100,
+   "files": {
+    "hits.npz": "sha256:023c6e963f642e20179fd14f2b3709c88f4dba95cad23b9ef6493df9fd99ebc7",
+    "launched.json": "sha256:4a26b76636dd608bd84b8fdf5622dcd16f1099960c372f312682f0a49d70ed63",
+    "microboone_optics.gdml": "sha256:2268bca0b7180cfbcddd15b8f70e7260281e68eff3723d83097583068fdd9065",
+    "sensors.csv": "sha256:937a4c8e057e434b15dbbcfb54e7ccc04a4398bbdc1aa7db37a8e7560fb09809",
+    "sources.cfg": "sha256:d2a905f068bd148106f1498ea7df0707ad9e0966cbe5ce09454ade0a008929fa"
+   },
+   "hits": 2436386,
+   "id": "microboone-g4ref-original",
+   "inputs": {
+    "microboone_optics.gdml": "microboone_optics.gdml"
+   },
+   "producer": {
+    "binary": "g4ref",
+    "binary_sha256": "9fd555c0c4982458834db9800bfcd7e5c7a4815de5c1e4005f4910018a24fd84",
+    "config": "microboone_sources_2e7.cfg",
+    "config_sha256": "d2a905f068bd148106f1498ea7df0707ad9e0966cbe5ce09454ade0a008929fa",
+    "flags": [],
+    "gdml": "microboone_optics.gdml",
+    "gdml_sha256": "2268bca0b7180cfbcddd15b8f70e7260281e68eff3723d83097583068fdd9065",
+    "geant4": "10.7.4",
+    "image": "Geant4 10.7.4 image",
+    "nchunks": 100,
+    "patch": "tools/g4ref/velocity_after_relocation.patch (the photon speed after a reflection at a relocation: the medium of the volume it continues in)",
+    "pencil": null,
+    "physics": "G4OpticalPhysics, photons as primaries",
+    "run": {
+     "config": "lumen/g4ref/geom/microboone_sources_2e7.cfg",
+     "flags": [
+      "--split-ev",
+      "6.19"
+     ],
+     "gdml": "lumen/g4ref/geom/microboone_optics.gdml",
+     "time": "00:20:00"
+    },
+    "seed": 20261101,
+    "sens_regex": "^volOpDetSensitive",
+    "source": "g4ref.cc",
+    "source_sha256": "50ca6bdd08af3a082399778e86a1b260dae39a89a6d5131e7093f27b046528a1",
+    "tool": "g4ref"
+   },
+   "reduced": "2026-11-09",
+   "sensors": 30,
+   "sources": 5,
+   "url": "https://github.com/OmarAlterkait/lumen-tpc/releases/download/v0.2.0/microboone-g4ref-original.tar.gz",
+   "sha256": "sha256:cf48b39fa97b08db47af46922f35af7110fd98b5dbe5e2594d9e71444966b8f2"
+  },
+  "sbnd-g4ref-original": {
+   "chunks": 60,
+   "files": {
+    "hits.npz": "sha256:08faa55d1afea70debc2ebb9842615c8c2aab301aed5e13506e08ed1b8983240",
+    "launched.json": "sha256:aa1b59accdac9b6b35c61c83ec71ef1594f18f950aa65b1636049dee8439e426",
+    "sensors.csv": "sha256:d5d9abc7c03ee15dd8f033709ae1c28aabf6457bfe0153abce81e8fcdb33553e",
+    "sources.cfg": "sha256:573ef33fac8223ebc36dedfe9fc16cd0f1603d284351d635ee80d55dcd7e756f"
+   },
+   "hits": 3865571,
+   "id": "sbnd-g4ref-original",
+   "inputs": {},
+   "producer": {
+    "binary": "g4ref",
+    "binary_sha256": "9fd555c0c4982458834db9800bfcd7e5c7a4815de5c1e4005f4910018a24fd84",
+    "config": "sbnd_sources_1e7.cfg",
+    "config_sha256": "573ef33fac8223ebc36dedfe9fc16cd0f1603d284351d635ee80d55dcd7e756f",
+    "flags": [],
+    "gdml": "sbnd_v02_00_full_simulation.gdml",
+    "gdml_sha256": "c60ee8dc491b3c9bda78ee193cece862ce80602a06434c29ae4a1646c476bf34",
+    "geant4": "10.7.4",
+    "image": "Geant4 10.7.4 image",
+    "nchunks": 60,
+    "patch": "tools/g4ref/velocity_after_relocation.patch (the photon speed after a reflection at a relocation: the medium of the volume it continues in)",
+    "pencil": null,
+    "physics": "G4OpticalPhysics, photons as primaries",
+    "run": {
+     "config": "lumen/g4ref/geom/sbnd_sources_1e7.cfg",
+     "flags": [
+      "--split-ev",
+      "6.19"
+     ],
+     "gdml": "geom_query/gdml/sbnd_v02_00_full_simulation.gdml",
+     "time": "00:30:00"
+    },
+    "seed": 20261029,
+    "sens_regex": "^volOpDetSensitive",
+    "source": "g4ref.cc",
+    "source_sha256": "50ca6bdd08af3a082399778e86a1b260dae39a89a6d5131e7093f27b046528a1",
+    "tool": "g4ref"
+   },
+   "reduced": "2026-11-09",
+   "sensors": 312,
+   "sources": 6,
+   "url": "https://github.com/OmarAlterkait/lumen-tpc/releases/download/v0.2.0/sbnd-g4ref-original.tar.gz",
+   "sha256": "sha256:ae2a80e1fc51cb86e1a80601db2065f7e53a317bceab078aef3bffaeb37960dc"
+  },
+  "gdml": {
+   "files": {
+    "microboone.gdml": "sha256:f18c8e60aefb445b335598727ebd879b9c740cc608a3c85736eae3c4f849e970",
+    "sbnd_pds_mapping.json": "sha256:e95c4ed3dd56e5b2f271a07e3f631bd51c27960ca04022788b51def881108d7a",
+    "sbnd_v02_00_full_simulation.gdml": "sha256:c60ee8dc491b3c9bda78ee193cece862ce80602a06434c29ae4a1646c476bf34"
+   },
+   "id": "gdml",
+   "producer": {
+    "tool": "the GDMLs the public detector files were converted from (sbndcode, ubcode)"
+   },
+   "url": "https://github.com/OmarAlterkait/lumen-tpc/releases/download/v0.2.0/gdml.tar.gz",
+   "sha256": "sha256:58d5eb0c26826a93a105be1902968248d9c6441df7e16d1033ffbbb7c80f1138"
+  },
+  "mc-gate-lartpc-de9e145": {
+   "files": {
+    "microboone_photons.npz": "sha256:9352023aeaf6e26920a2386e1b9aed96e93cac2a7e2e7c3ecf2d346d1b9fc3d8",
+    "microboone_record.npz": "sha256:5d90be8e1e8ebaf471d9d911a1d2533d300486c69a76d2a6ae54125301009b7b",
+    "sbnd_photons.npz": "sha256:0cbf3f2f549a2f0cdb43189d4dbec7f9d4b833e8534ad67e7b2d0723f035642b",
+    "sbnd_record.npz": "sha256:04427f3af0c142042c52a1a702488a68d2888f4ab2ee6511832d2641beee104f"
+   },
+   "id": "mc-gate-lartpc-de9e145",
+   "inputs": {
+    "microboone_photons.npz": "microboone_photons.npz",
+    "microboone_record.npz": "microboone_record.npz",
+    "sbnd_photons.npz": "sbnd_photons.npz",
+    "sbnd_record.npz": "sbnd_record.npz"
+   },
+   "producer": {
+    "commit": "de9e145",
+    "lumen": "lumen p3/final (lumen-tpc 7abf903)",
+    "photons": "fixed emission rows per detector (FromArrays), sampled once from the detector's golden event by lumen's port of 0.1",
+    "tool": "gates/mc_gate.py (lumen.compare.mc record: 16 seeds x 65,536 photons, the arrivals and the derivatives along each family key)"
+   },
+   "reduced": "2026-11-19",
+   "url": "https://github.com/OmarAlterkait/lumen-tpc/releases/download/v0.2.0/mc-gate-lartpc-de9e145.tar.gz",
+   "sha256": "sha256:60780c51dbb53cfb284acb597aee0c1d5718781dc7814939aa7a33bc819f0082"
+  },
+  "sbnd-g4ref-export": {
+   "chunks": 60,
+   "files": {
+    "hits.npz": "sha256:3f55d44d04c93f8b2267e4086e5f0061ba50ff962578e51f54349db26385e0e7",
+    "launched.json": "sha256:aa1b59accdac9b6b35c61c83ec71ef1594f18f950aa65b1636049dee8439e426",
+    "sbnd_owned.gdml": "sha256:2d5b93701713cf636e2822e3eeedde33de3b39f1f4d29de5716d75f8ff4dccef",
+    "sensors.csv": "sha256:d5d9abc7c03ee15dd8f033709ae1c28aabf6457bfe0153abce81e8fcdb33553e",
+    "sources.cfg": "sha256:573ef33fac8223ebc36dedfe9fc16cd0f1603d284351d635ee80d55dcd7e756f"
+   },
+   "hits": 3863195,
+   "id": "sbnd-g4ref-export",
+   "inputs": {
+    "sbnd_owned.gdml": "sbnd_owned.gdml"
+   },
+   "producer": {
+    "binary": "g4ref",
+    "binary_sha256": "9fd555c0c4982458834db9800bfcd7e5c7a4815de5c1e4005f4910018a24fd84",
+    "config": "sbnd_sources_1e7.cfg",
+    "config_sha256": "573ef33fac8223ebc36dedfe9fc16cd0f1603d284351d635ee80d55dcd7e756f",
+    "export": {
+     "detector": "sbnd",
+     "detector_digest": "sha256:968f0ca170a4a4c45da13be48da62c01342e0a07d6232844a768d908ffd8d2d9",
+     "lossless": true,
+     "lumen": "0.1.4.dev457+g054390d",
+     "notes": [
+      "volFieldCage in volCryostat less boxCryostatUllage"
+     ],
+     "original": "sbnd-g4ref-original",
+     "sha256": "sha256:2d5b93701713cf636e2822e3eeedde33de3b39f1f4d29de5716d75f8ff4dccef",
+     "tool": "lumen.compare.ownership"
+    },
+    "flags": [
+     "--split-ev",
+     "6.19"
+    ],
+    "gdml": "sbnd_owned.gdml",
+    "gdml_sha256": "2d5b93701713cf636e2822e3eeedde33de3b39f1f4d29de5716d75f8ff4dccef",
+    "geant4": "10.7.4",
+    "image": "Geant4 10.7.4 image",
+    "nchunks": 60,
+    "patch": "tools/g4ref/velocity_after_relocation.patch (the photon speed after a reflection at a relocation: the medium of the volume it continues in)",
+    "pencil": null,
+    "physics": "G4OpticalPhysics, photons as primaries",
+    "run": {
+     "config": "lumen/g4ref/geom/sbnd_sources_1e7.cfg",
+     "gdml": "lumen/g4ref/export_min2/sbnd_owned.gdml",
+     "time": "03:00:00"
+    },
+    "seed": 20265029,
+    "sens_regex": "^volOpDetSensitive",
+    "source": "g4ref.cc",
+    "source_sha256": "50ca6bdd08af3a082399778e86a1b260dae39a89a6d5131e7093f27b046528a1",
+    "tool": "g4ref"
+   },
+   "reduced": "2026-11-19",
+   "sensors": 312,
+   "sources": 6,
+   "url": "https://github.com/OmarAlterkait/lumen-tpc/releases/download/v0.2.0/sbnd-g4ref-export.tar.gz",
+   "sha256": "sha256:bc7d0c61c5205fb5efbe367af518b321237cccb5b2cc998ed892ea96451d2ca3"
+  },
+  "microboone-g4ref-export": {
+   "chunks": 100,
+   "files": {
+    "hits.npz": "sha256:48964d83fb6c4eb544db59af4b0935974c46247fbf4278c97ad1fdce712491d2",
+    "launched.json": "sha256:4a26b76636dd608bd84b8fdf5622dcd16f1099960c372f312682f0a49d70ed63",
+    "microboone_owned.gdml": "sha256:53184e59f456a33cd682de6d8ccb44b173d37cbc81281ba0aed62abaa67cd861",
+    "sensors.csv": "sha256:937a4c8e057e434b15dbbcfb54e7ccc04a4398bbdc1aa7db37a8e7560fb09809",
+    "sources.cfg": "sha256:d2a905f068bd148106f1498ea7df0707ad9e0966cbe5ce09454ade0a008929fa"
+   },
+   "hits": 1910707,
+   "id": "microboone-g4ref-export",
+   "inputs": {
+    "microboone_owned.gdml": "microboone_owned.gdml"
+   },
+   "producer": {
+    "binary": "g4ref",
+    "binary_sha256": "9fd555c0c4982458834db9800bfcd7e5c7a4815de5c1e4005f4910018a24fd84",
+    "config": "microboone_sources_2e7.cfg",
+    "config_sha256": "d2a905f068bd148106f1498ea7df0707ad9e0966cbe5ce09454ade0a008929fa",
+    "export": {
+     "detector": "microboone",
+     "detector_digest": "sha256:c052766c2c0a83088efc7f34c921e5ac3c481ea45f8a5f4a9716bd3ae5d96864",
+     "lossless": true,
+     "lumen": "0.1.4.dev457+g054390d",
+     "notes": [
+      "volTPCActive in volTPC less TPCPlane, TPCPlaneVert",
+      "vol_PMT_Underside in volPMT left out: inside PMT_Lens",
+      "volEndCap in volCryostat less SteelTube within Cryostat",
+      "volEndCap in volCryostat within Cryostat",
+      "volTPC in volCryostat less EndCap within Cryostat"
+     ],
+     "original": "microboone-g4ref-original",
+     "sha256": "sha256:53184e59f456a33cd682de6d8ccb44b173d37cbc81281ba0aed62abaa67cd861",
+     "tool": "lumen.compare.ownership"
+    },
+    "flags": [
+     "--split-ev",
+     "6.19"
+    ],
+    "gdml": "microboone_owned.gdml",
+    "gdml_sha256": "53184e59f456a33cd682de6d8ccb44b173d37cbc81281ba0aed62abaa67cd861",
+    "geant4": "10.7.4",
+    "image": "Geant4 10.7.4 image",
+    "nchunks": 100,
+    "patch": "tools/g4ref/velocity_after_relocation.patch (the photon speed after a reflection at a relocation: the medium of the volume it continues in)",
+    "pencil": null,
+    "physics": "G4OpticalPhysics, photons as primaries",
+    "run": {
+     "config": "lumen/g4ref/geom/microboone_sources_2e7.cfg",
+     "gdml": "lumen/g4ref/export_min2/microboone_owned.gdml",
+     "time": "01:30:00"
+    },
+    "seed": 20265101,
+    "sens_regex": "^volOpDetSensitive",
+    "source": "g4ref.cc",
+    "source_sha256": "50ca6bdd08af3a082399778e86a1b260dae39a89a6d5131e7093f27b046528a1",
+    "tool": "g4ref"
+   },
+   "reduced": "2026-11-19",
+   "sensors": 30,
+   "sources": 5,
+   "url": "https://github.com/OmarAlterkait/lumen-tpc/releases/download/v0.2.0/microboone-g4ref-export.tar.gz",
+   "sha256": "sha256:7c612ce5b708e00940d5c39ea12b200467d48f296790917ba3a78daf7a2110e7"
+  },
+  "mc-gate-tpc-3b241f1": {
+   "files": {
+    "microboone_photons.npz": "sha256:9352023aeaf6e26920a2386e1b9aed96e93cac2a7e2e7c3ecf2d346d1b9fc3d8",
+    "microboone_record.npz": "sha256:db0050b144d07d17c089403bdca8db65940581e9523791cc4d42512204a26033",
+    "sbnd_photons.npz": "sha256:0cbf3f2f549a2f0cdb43189d4dbec7f9d4b833e8534ad67e7b2d0723f035642b",
+    "sbnd_record.npz": "sha256:c21e1f74926efde0d515e91e44aaac3d08fd4210286e427dbd4c738560a5be5b"
+   },
+   "id": "mc-gate-tpc-3b241f1",
+   "inputs": {
+    "microboone_photons.npz": "microboone_photons.npz",
+    "microboone_record.npz": "microboone_record.npz",
+    "sbnd_photons.npz": "sbnd_photons.npz",
+    "sbnd_record.npz": "sbnd_record.npz"
+   },
+   "producer": {
+    "commit": "3b241f1",
+    "lumen": "lumen p3/final 3b241f1 (lumen-tpc p3/rebase, recipes as 52843df; tallymap cba41b6)",
+    "photons": "fixed emission rows per detector (FromArrays), sampled once from the detector's reference event",
+    "tool": "python -m lumen.compare gate --package lumen_tpc (lumen.compare.mc record: 16 seeds x 65,536 photons, the arrivals and the derivatives along each family key)",
+    "environment": {
+     "microboone": {
+      "commits": {
+       "lumen": "0.1.4.dev632+g3b241f1",
+       "tallymap": "0.7.1",
+       "jax": "0.6.2",
+       "jaxlib": "0.6.2",
+       "cuda": "PJRT C API cuda 12080",
+       "nvrtc": "12.9.86"
+      },
+      "gpu": "NVIDIA GeForce RTX 2080 Ti",
+      "date": "2026-11-20 11:08"
+     },
+     "sbnd": {
+      "commits": {
+       "lumen": "0.1.4.dev632+g3b241f1",
+       "tallymap": "0.7.1",
+       "jax": "0.6.2",
+       "jaxlib": "0.6.2",
+       "cuda": "PJRT C API cuda 12080",
+       "nvrtc": "12.9.86"
+      },
+      "gpu": "NVIDIA GeForce RTX 2080 Ti",
+      "date": "2026-11-20 11:11"
+     }
+    },
+    "environment_note": "tallymap reports its package version (0.7.1); the tree is main cba41b6, lumen's pin"
+   },
+   "reduced": "2026-11-20",
+   "url": "https://github.com/OmarAlterkait/lumen-tpc/releases/download/v0.2.0/mc-gate-tpc-3b241f1.tar.gz",
+   "sha256": "sha256:2de7efc1c90316df16a54418228f55a40527d88f13fae6dfcb4e5f5dc86e04ad"
+  }
+ }
+}

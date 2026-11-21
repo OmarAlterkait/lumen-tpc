@@ -1,0 +1,350 @@
+{
+ "meta": {
+  "title": "LArSoft's standard liquid-argon optics (lardataalg standard_properties), as lumen_tpc reads them",
+  "source": "LArSoft/lardataalg 03f5e9a2e1cec38be040f91fdd662c9d54ee0667 lardataalg/DetectorInfo/larproperties.fcl (https://github.com/LArSoft/lardataalg/tree/03f5e9a2e1cec38be040f91fdd662c9d54ee0667)",
+  "written_by": "tools/transcribe.py --lardataalg (every value parsed from the source, its lines in source)",
+  "interpolation": "Geant4 G4MaterialPropertyVector::Value: linear in energy, held at the end values"
+ },
+ "lar": {
+  "larsoft_standard": {
+   "source": "LArSoft/lardataalg 03f5e9a2e1cec38be040f91fdd662c9d54ee0667 lardataalg/DetectorInfo/larproperties.fcl",
+   "rindex": {
+    "energy": [
+     1.18626,
+     1.68626,
+     2.18626,
+     2.68626,
+     3.18626,
+     3.68626,
+     4.18626,
+     4.68626,
+     5.18626,
+     5.68626,
+     6.18626,
+     6.68626,
+     7.18626,
+     7.68626,
+     8.18626,
+     8.68626,
+     9.18626,
+     9.68626,
+     10.1863,
+     10.6863,
+     11.1863
+    ],
+    "energy_unit": "eV",
+    "values": [
+     1.24664,
+     1.2205,
+     1.22694,
+     1.22932,
+     1.23124,
+     1.23322,
+     1.23545,
+     1.23806,
+     1.24116,
+     1.24489,
+     1.24942,
+     1.25499,
+     1.26197,
+     1.2709,
+     1.28263,
+     1.29865,
+     1.32169,
+     1.35747,
+     1.42039,
+     1.56011,
+     2.16626
+    ],
+    "value_unit": "1",
+    "source": "LArSoft/lardataalg 03f5e9a2e1cec38be040f91fdd662c9d54ee0667 lardataalg/DetectorInfo/larproperties.fcl:56-57 (RIndexEnergies, RIndexSpectrum)",
+    "note": "RIndexSpectrum; the fcl cites arXiv:2002.09346 (Babicz et al. 2020)"
+   },
+   "rayleigh_length": {
+    "energy": [
+     1.18626,
+     1.68626,
+     2.18626,
+     2.68626,
+     3.18626,
+     3.68626,
+     4.18626,
+     4.68626,
+     5.18626,
+     5.68626,
+     6.18626,
+     6.68626,
+     7.18626,
+     7.68626,
+     8.18626,
+     8.68626,
+     9.18626,
+     9.68626,
+     10.1863,
+     10.6863,
+     11.1863
+    ],
+    "energy_unit": "eV",
+    "values": [
+     1200800,
+     390747,
+     128633,
+     54969.1,
+     27191.8,
+     14853.7,
+     8716.9,
+     5397.42,
+     3481.37,
+     2316.51,
+     1577.63,
+     1092.02,
+     763.045,
+     534.232,
+     371.335,
+     252.942,
+     165.38,
+     99.9003,
+     51.2653,
+     17.495,
+     0.964341
+    ],
+    "value_unit": "cm",
+    "source": "LArSoft/lardataalg 03f5e9a2e1cec38be040f91fdd662c9d54ee0667 lardataalg/DetectorInfo/larproperties.fcl:65-66 (RayleighEnergies, RayleighSpectrum)",
+    "note": "RayleighSpectrum at 90 K, from arXiv:2002.09346; Geant4's RAYLEIGH"
+   },
+   "abs_length": {
+    "energy": [
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11
+    ],
+    "energy_unit": "eV",
+    "values": [
+     8000.0,
+     8000.0,
+     8000.0,
+     8000.0,
+     8000.0,
+     2000.0,
+     2000.0,
+     2000.0
+    ],
+    "value_unit": "cm",
+    "source": "LArSoft/lardataalg 03f5e9a2e1cec38be040f91fdd662c9d54ee0667 lardataalg/DetectorInfo/larproperties.fcl:60-61 (AbsLengthEnergies, AbsLengthSpectrum)",
+    "note": "AbsLengthSpectrum; Geant4's ABSLENGTH"
+   },
+   "scint_yield": {
+    "value": 24000.0,
+    "unit": "photons/MeV",
+    "source": "LArSoft/lardataalg 03f5e9a2e1cec38be040f91fdd662c9d54ee0667 lardataalg/DetectorInfo/larproperties.fcl:29 (ScintYield)",
+    "note": "the physical yield; Geant4's SCINTILLATIONYIELD is ScintYield x ScintPreScale"
+   },
+   "fast_scint_spectrum": {
+    "energy": [
+     7.2,
+     7.9,
+     8.3,
+     8.6,
+     8.9,
+     9.1,
+     9.3,
+     9.6,
+     9.7,
+     9.8,
+     10,
+     10.2,
+     10.3,
+     10.6,
+     11,
+     11.6,
+     11.9
+    ],
+    "energy_unit": "eV",
+    "values": [
+     0.0,
+     0.04,
+     0.12,
+     0.27,
+     0.44,
+     0.62,
+     0.8,
+     0.91,
+     0.92,
+     0.85,
+     0.7,
+     0.5,
+     0.31,
+     0.13,
+     0.04,
+     0.01,
+     0.0
+    ],
+    "value_unit": "relative",
+    "source": "LArSoft/lardataalg 03f5e9a2e1cec38be040f91fdd662c9d54ee0667 lardataalg/DetectorInfo/larproperties.fcl:21-23 (FastScintEnergies, FastScintSpectrum)",
+    "note": "FastScintSpectrum; Geant4's SCINTILLATIONCOMPONENT1"
+   },
+   "slow_scint_spectrum": {
+    "energy": [
+     7.2,
+     7.9,
+     8.3,
+     8.6,
+     8.9,
+     9.1,
+     9.3,
+     9.6,
+     9.7,
+     9.8,
+     10,
+     10.2,
+     10.3,
+     10.6,
+     11,
+     11.6,
+     11.9
+    ],
+    "energy_unit": "eV",
+    "values": [
+     0.0,
+     0.04,
+     0.12,
+     0.27,
+     0.44,
+     0.62,
+     0.8,
+     0.91,
+     0.92,
+     0.85,
+     0.7,
+     0.5,
+     0.31,
+     0.13,
+     0.04,
+     0.01,
+     0.0
+    ],
+    "value_unit": "relative",
+    "source": "LArSoft/lardataalg 03f5e9a2e1cec38be040f91fdd662c9d54ee0667 lardataalg/DetectorInfo/larproperties.fcl:22-24 (SlowScintEnergies, SlowScintSpectrum)",
+    "note": "SlowScintSpectrum; Geant4's SCINTILLATIONCOMPONENT2"
+   },
+   "fast_time_constant": {
+    "value": 6.0,
+    "unit": "ns",
+    "source": "LArSoft/lardataalg 03f5e9a2e1cec38be040f91fdd662c9d54ee0667 lardataalg/DetectorInfo/larproperties.fcl:26 (ScintFastTimeConst)"
+   },
+   "slow_time_constant": {
+    "value": 1590.0,
+    "unit": "ns",
+    "source": "LArSoft/lardataalg 03f5e9a2e1cec38be040f91fdd662c9d54ee0667 lardataalg/DetectorInfo/larproperties.fcl:27 (ScintSlowTimeConst)"
+   },
+   "yield_ratio": {
+    "value": 0.3,
+    "source": "LArSoft/lardataalg 03f5e9a2e1cec38be040f91fdd662c9d54ee0667 lardataalg/DetectorInfo/larproperties.fcl:32 (ScintYieldRatio)",
+    "note": "the fast share of the light when ScintByParticleType is false"
+   },
+   "by_particle_type": {
+    "value": false,
+    "source": "LArSoft/lardataalg 03f5e9a2e1cec38be040f91fdd662c9d54ee0667 lardataalg/DetectorInfo/larproperties.fcl:33 (ScintByParticleType)",
+    "note": "true: each particle's yield and fast share (per_particle) in place of ScintYield and ScintYieldRatio"
+   },
+   "per_particle": {
+    "Muon": {
+     "yield_per_MeV": 24000.0,
+     "fast_fraction": 0.23,
+     "source": "LArSoft/lardataalg 03f5e9a2e1cec38be040f91fdd662c9d54ee0667 lardataalg/DetectorInfo/larproperties.fcl:41, 42 (MuonScintYield, MuonScintYieldRatio)"
+    },
+    "Pion": {
+     "yield_per_MeV": 24000.0,
+     "fast_fraction": 0.23,
+     "source": "LArSoft/lardataalg 03f5e9a2e1cec38be040f91fdd662c9d54ee0667 lardataalg/DetectorInfo/larproperties.fcl:43, 44 (PionScintYield, PionScintYieldRatio)"
+    },
+    "Electron": {
+     "yield_per_MeV": 20000.0,
+     "fast_fraction": 0.27,
+     "source": "LArSoft/lardataalg 03f5e9a2e1cec38be040f91fdd662c9d54ee0667 lardataalg/DetectorInfo/larproperties.fcl:45, 46 (ElectronScintYield, ElectronScintYieldRatio)"
+    },
+    "Kaon": {
+     "yield_per_MeV": 24000.0,
+     "fast_fraction": 0.23,
+     "source": "LArSoft/lardataalg 03f5e9a2e1cec38be040f91fdd662c9d54ee0667 lardataalg/DetectorInfo/larproperties.fcl:47, 48 (KaonScintYield, KaonScintYieldRatio)"
+    },
+    "Proton": {
+     "yield_per_MeV": 19200.0,
+     "fast_fraction": 0.29,
+     "source": "LArSoft/lardataalg 03f5e9a2e1cec38be040f91fdd662c9d54ee0667 lardataalg/DetectorInfo/larproperties.fcl:49, 50 (ProtonScintYield, ProtonScintYieldRatio)"
+    },
+    "Alpha": {
+     "yield_per_MeV": 16800.0,
+     "fast_fraction": 0.56,
+     "source": "LArSoft/lardataalg 03f5e9a2e1cec38be040f91fdd662c9d54ee0667 lardataalg/DetectorInfo/larproperties.fcl:51, 52 (AlphaScintYield, AlphaScintYieldRatio)"
+    }
+   }
+  },
+  "dune": {
+   "source": "DUNE/dunecore 1861034bf807a2f556a476615c0a0f212dc43a0e dunecore/Utilities/larproperties_dune.fcl",
+   "table": "dunefd_properties",
+   "overrides": {
+    "scint_yield": {
+     "value": 24000.0,
+     "source": "DUNE/dunecore 1861034bf807a2f556a476615c0a0f212dc43a0e dunecore/Utilities/larproperties_dune.fcl:13 (ScintYield)"
+    },
+    "by_particle_type": {
+     "value": true,
+     "source": "DUNE/dunecore 1861034bf807a2f556a476615c0a0f212dc43a0e dunecore/Utilities/larproperties_dune.fcl:16 (ScintByParticleType)"
+    }
+   },
+   "note": "dunefd_properties' scintillation constants over standard_properties'"
+  },
+  "microboone": {
+   "source": "uboone/ubevt 14ad3eb1397a6ced617eba36dc5d035a64bd196e ubevt/Utilities/larproperties_microboone.fcl",
+   "table": "microboone_properties",
+   "overrides": {},
+   "note": "microboone_properties' scintillation constants over standard_properties' (none)"
+  },
+  "sbnd": {
+   "source": "SBNSoftware/sbndcode v10_26_00 (commit b21d990d4e60e30118d462f1bd303a94bfdf0a37) sbndcode/LArSoftConfigurations/opticalproperties_sbnd.fcl",
+   "table": "sbnd_opticalproperties",
+   "overrides": {
+    "slow_time_constant": {
+     "value": 1300.0,
+     "source": "SBNSoftware/sbndcode v10_26_00 (commit b21d990d4e60e30118d462f1bd303a94bfdf0a37) sbndcode/LArSoftConfigurations/opticalproperties_sbnd.fcl:26 (ScintSlowTimeConst)"
+    },
+    "by_particle_type": {
+     "value": true,
+     "source": "SBNSoftware/sbndcode v10_26_00 (commit b21d990d4e60e30118d462f1bd303a94bfdf0a37) sbndcode/LArSoftConfigurations/opticalproperties_sbnd.fcl:28 (ScintByParticleType)"
+    }
+   },
+   "note": "sbnd_opticalproperties' scintillation constants over standard_properties'"
+  }
+ },
+ "surfaces": {
+  "larsoft_standard": {
+   "source": "LArSoft/lardataalg 03f5e9a2e1cec38be040f91fdd662c9d54ee0667 lardataalg/DetectorInfo/larproperties.fcl:70-73 (ReflectiveSurfaceEnergies, Names, Reflectances, DiffuseFractions)",
+   "energies_eV": [
+    7,
+    9,
+    10
+   ],
+   "surfaces": {
+    "STEEL_STAINLESS_Fe7Cr2Ni": {
+     "reflectance": [
+      0.25,
+      0.25,
+      0.25
+     ],
+     "diffuse_fraction": [
+      0.5,
+      0.5,
+      0.5
+     ]
+    }
+   },
+   "used_by": "MicroBooNE (larproperties_microboone.fcl is standard_properties)"
+  }
+ }
+}

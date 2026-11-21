@@ -1,0 +1,119 @@
+{
+ "schema": "lumen-sensor-values/1",
+ "model": "lumen:sensor",
+ "name": "sbnd_xarapuca_vuv",
+ "readout": "hits",
+ "provenance": {
+  "source": "SBNSoftware/sbndcode v10_26_00 (commit b21d990d4e60e30118d462f1bd303a94bfdf0a37) (https://github.com/SBNSoftware/sbndcode/tree/b21d990d4e60e30118d462f1bd303a94bfdf0a37): sbndcode/OpDetSim/{digi_pmt_sbnd.fcl, digi_arapuca_sbnd.fcl, DigiPMTSBNDAlg.cc, DigiPMTSBNDAlg.hh, DigiArapucaSBNDAlg.cc, opDetDigitizerWorker.cc}, sbndcode/LArSoftConfigurations/{detectorclocks_sbnd.fcl, opticalproperties_sbnd.fcl}, calibration_database_PDS_TagSets_sbnd.fcl; SBNSoftware/sbnd_data v01_42_00 (commit 8f3deb61ebe4ea61fa09e8b5721394be64ed1c63) (https://github.com/SBNSoftware/sbnd_data/tree/8f3deb61ebe4ea61fa09e8b5721394be64ed1c63): OpDetSim/digi_pmt_sbnd_v2int0.root, OpDetSim/digi_arapuca_sbnd.root, CalibrationDatabase/pds_calibration.db; LArSoft/larsim v10_22_01 (commit 72d698f8dece3570bd70b20ddfc63eb5544aaae6) (https://github.com/LArSoft/larsim/tree/72d698f8dece3570bd70b20ddfc63eb5544aaae6): larsim/PhotonHitConverter/PhotonHitConverter_module.cc",
+  "status": "transcribed",
+  "fields": {
+   "qe": "digi_arapuca_sbnd.fcl:25, digi_arapuca_sbnd.fcl:26: sbndcode's detection efficiencies, per real photon: sbndcode divides each by ScintPreScale (DigiArapucaSBNDAlg.cc:13, 14, 15) and applies it to the photons Geant4 tracked; it reads direct (VUV) light below the edge, reflected (visible) light above (opDetDigitizerWorker.cc:212, 233, 362, 371); the bands meet at 6.19 eV (200.3 nm), where larsim's PhotonHitConverter files a photon as VUV (above the energy) or visible (LArSoft/larsim v10_22_01 (commit 72d698f8dece3570bd70b20ddfc63eb5544aaae6) larsim/PhotonHitConverter/PhotonHitConverter_module.cc:114, 132)",
+   "tts": "SBNSoftware/sbnd_data v01_42_00 (commit 8f3deb61ebe4ea61fa09e8b5721394be64ed1c63) OpDetSim/digi_arapuca_sbnd.root TimeXArapucaVUV: the photon time inside the VUV box, read in 1 ns bins, on direct light (DigiArapucaSBNDAlg.cc:118, 192, 289)",
+   "charge": "digi_arapuca_sbnd.fcl:33: N(1, 0.099^2) per photoelectron",
+   "gain": "digi_arapuca_sbnd.fcl:20: ADC at the single photoelectron's peak",
+   "dark_rate_hz": "digi_arapuca_sbnd.fcl:15",
+   "frontend/sampling_ns": "digi_arapuca_sbnd.fcl:31: the DAPHNE sampling (62.5 MHz)",
+   "frontend/baseline": "digi_arapuca_sbnd.fcl:17",
+   "frontend/noise": "digi_arapuca_sbnd.fcl:14"
+  },
+  "choices": {
+   "efficiency": "1: no per-sensor scale beyond the detection efficiency in qe",
+   "frontend/charge_scale": "1: the charge in units of the single photoelectron",
+   "frontend/charge_noise_pe": "0: no charge noise beyond the single photoelectron's spread (charge)",
+   "frontend/window_ns": "0: no integration window (each photoelectron its own pulse or hit)",
+   "frontend/charge_step_pe": "0.25: the charge histogram's step, a quarter of a photoelectron",
+   "t_offset_ns": "0: sbndcode adds no transit or cable delay to an X-ARAPUCA photon",
+   "charge/fraction": "0: sbndcode's amplitude fluctuation is Gaussian only (no exponential part)",
+   "charge/tau_pe": "1: unused at fraction 0",
+   "frontend/charge_max_pe": "64: the charge histogram's top",
+   "ranges": "the bounds of each timing value a fit may reach: lumen:sensor builds its static time grid for them (a value outside is refused); not experiment data. A time spread's width has none here: its range is lumen's derived one (lumen.rules.choices.TIME_SPREAD_REACH)"
+  },
+  "warning": "sbndcode v10_26_00 draws the time tables with CLHEP::RandGeneral, in [0, 1) ns; this set reads them in 1 ns bins, as sbnd_pmt does timeTPB. Not modelled: the SiPM cross-talk (digi_arapuca_sbnd.fcl:16: 0.424 of photoelectrons count twice) and the DAPHNE waveform (readout hits); the visible light a VUV X-ARAPUCA reads is timed with TimeXArapucaVUV, where sbndcode adds timeTPB (DigiArapucaSBNDAlg.cc:138)"
+ },
+ "qe": {
+  "band_edges_nm": [
+   200.29757420549313
+  ],
+  "values": [
+   0.01752,
+   0.00271
+  ]
+ },
+ "ce": null,
+ "efficiency": 1.0,
+ "t_offset_ns": 0.0,
+ "tts": {
+  "form": "table",
+  "edges_ns": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17,
+   18,
+   19,
+   20
+  ],
+  "pdf": [
+   0.063906376,
+   0.205120922,
+   0.225522914,
+   0.18461793,
+   0.121111954,
+   0.085908567,
+   0.049704981,
+   0.02680269,
+   0.017101694,
+   0.010400996,
+   0.004100408,
+   0.002900289,
+   0.001900189,
+   0.00050005,
+   0.00010001,
+   0.0,
+   0.00020002,
+   0.00010001,
+   0.0,
+   0.0
+  ]
+ },
+ "charge": {
+  "form": "gauss_exp",
+  "sigma_pe": 0.099,
+  "fraction": 0.0,
+  "tau_pe": 1.0
+ },
+ "gain": 18.0,
+ "threshold": null,
+ "dark_rate_hz": 10.0,
+ "frontend": {
+  "sampling_ns": 16.0,
+  "unit": "ADC",
+  "baseline": 700.0,
+  "noise": 0.65,
+  "window_ns": 0.0,
+  "charge_noise_pe": 0.0,
+  "charge_scale": 1.0,
+  "charge_step_pe": 0.25,
+  "charge_max_pe": 64.0
+ },
+ "ranges": {
+  "t_offset": [
+   -10.0,
+   10.0
+  ]
+ }
+}
