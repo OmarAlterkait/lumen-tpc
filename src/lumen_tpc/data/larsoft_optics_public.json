@@ -283,6 +283,11 @@
      "fast_fraction": 0.56,
      "source": "LArSoft/lardataalg 03f5e9a2e1cec38be040f91fdd662c9d54ee0667 lardataalg/DetectorInfo/larproperties.fcl:51, 52 (AlphaScintYield, AlphaScintYieldRatio)"
     }
+   },
+   "resolution_scale": {
+    "value": 1.0,
+    "source": "LArSoft/lardataalg 03f5e9a2e1cec38be040f91fdd662c9d54ee0667 lardataalg/DetectorInfo/larproperties.fcl:25 (ScintResolutionScale)",
+    "note": "the width of the photon count about its mean, in Poisson widths; larsim's MaterialPropertyLoader gives it to Geant4 as LAr's RESOLUTIONSCALE"
    }
   },
   "dune": {

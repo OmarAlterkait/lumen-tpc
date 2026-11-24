@@ -229,6 +229,7 @@ def test_microboone_lar_scintillates_as_standard_properties(tmp_path):
     assert {"RINDEX", "SCINTILLATIONCOMPONENT1", "SCINTILLATIONCOMPONENT2", "SCINTILLATIONTIMECONSTANT1",
             "SCINTILLATIONTIMECONSTANT2", "SCINTILLATIONYIELD2"} <= set(p)  # fmt: skip
     assert "larproperties.fcl:32 (ScintYieldRatio)" in p["SCINTILLATIONYIELD1"].note
+    assert float(p["RESOLUTIONSCALE"].value) == 1.0  # ScintResolutionScale, as the loader gives it to Geant4
 
 
 def test_every_shipped_timed_group_has_a_readout_gate():

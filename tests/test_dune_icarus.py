@@ -57,8 +57,10 @@ def test_lar_scintillation_is_larsofts_physical_light():
         s = lar_scintillation(name, record)
         assert set(s) == {"SCINTILLATIONYIELD", "SCINTILLATIONCOMPONENT1", "SCINTILLATIONCOMPONENT2",
                           "SCINTILLATIONTIMECONSTANT1", "SCINTILLATIONTIMECONSTANT2", "SCINTILLATIONYIELD1",
-                          "SCINTILLATIONYIELD2"}  # fmt: skip
+                          "SCINTILLATIONYIELD2", "RESOLUTIONSCALE"}  # fmt: skip
         assert float(s["SCINTILLATIONYIELD"].value) == 24000.0  # ScintYield, no ScintPreScale
+        r = s["RESOLUTIONSCALE"]  # ScintResolutionScale: no experiment here overrides it
+        assert float(r.value) == 1.0 and "larproperties.fcl:25 (ScintResolutionScale)" in r.note
         assert float(s["SCINTILLATIONYIELD1"].value) == fast and float(s["SCINTILLATIONYIELD2"].value) == 1.0 - fast
         assert float(s["SCINTILLATIONTIMECONSTANT1"].value) == 6.0
         assert float(s["SCINTILLATIONTIMECONSTANT2"].value) == (1300.0 if name == "sbnd" else 1590.0)

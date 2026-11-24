@@ -2,7 +2,8 @@
 keys.
 
     lar_scintillation("sbnd")   {SCINTILLATIONYIELD, SCINTILLATIONCOMPONENT1/2, SCINTILLATIONTIMECONSTANT1/2,
-                                 SCINTILLATIONYIELD1/2} as detector-file Property records (origin "recipe"):
+                                 SCINTILLATIONYIELD1/2, RESOLUTIONSCALE} as detector-file Property records (origin
+                                 "recipe"):
                                  lardataalg's standard_properties under the experiment's own fcl (``lar.<experiment>``
                                  of the tables, one record per experiment: dune, microboone, sbnd), each value with
                                  its file and line
@@ -18,7 +19,8 @@ The yield is LArSoft's physical ScintYield (photons/MeV); ScintPreScale, which L
 divides out of its detection efficiency later, is a run setting of its simulation, not the detector's light: it is
 not here (a comparison with such a run sets it for the run, ``lumen_tpc.runs``). LArSoft's MaterialPropertyLoader
 gives Geant4 the fast share as YIELDRATIO (Geant4 10), which Geant4 11 splits into SCINTILLATIONYIELD1 and 2: the
-share and the rest.
+share and the rest. RESOLUTIONSCALE is ScintResolutionScale (1 in every experiment here), which the loader passes on
+as it is; Geant4's scintillation reads it.
 """
 
 from __future__ import annotations
@@ -85,4 +87,6 @@ def lar_scintillation(name: str, record: dict | None = None) -> dict[str, schema
     out["SCINTILLATIONYIELD"] = const("SCINTILLATIONYIELD", y, "physical yield (/MeV)", ys)
     out["SCINTILLATIONYIELD1"] = const("SCINTILLATIONYIELD1", fast, f"{fn} (the fast share)", fs)
     out["SCINTILLATIONYIELD2"] = const("SCINTILLATIONYIELD2", 1.0 - float(fast), f"1 - {fn}", fs)
+    r = d["resolution_scale"]
+    out["RESOLUTIONSCALE"] = const("RESOLUTIONSCALE", r["value"], "ScintResolutionScale", r["source"])
     return out

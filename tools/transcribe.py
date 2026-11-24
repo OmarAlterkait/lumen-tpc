@@ -434,7 +434,7 @@ def microboone_set(fcl, chconfig):
 PARTICLES = ("Muon", "Pion", "Electron", "Kaon", "Proton", "Alpha")
 SCINT_OVERRIDES = {"ScintYield": "scint_yield", "ScintFastTimeConst": "fast_time_constant",
                    "ScintSlowTimeConst": "slow_time_constant", "ScintYieldRatio": "yield_ratio",
-                   "ScintByParticleType": "by_particle_type"} | {
+                   "ScintByParticleType": "by_particle_type", "ScintResolutionScale": "resolution_scale"} | {
     f"{k}{s}": f"per_particle.{k}.{f}" for k in PARTICLES
     for s, f in (("ScintYield", "yield_per_MeV"), ("ScintYieldRatio", "fast_fraction"))}  # fmt: skip
 
@@ -474,7 +474,8 @@ def experiment_record(name, fcl):
 
 def optics_tables(fcl, experiments=None):
     """LArSoft's standard LAr tables (RINDEX, RAYLEIGH, ABSLENGTH), its scintillation (ScintYield, the fast and slow
-    spectra and time constants, ScintYieldRatio, ScintByParticleType, the per-particle yields and fast shares) and its
+    spectra and time constants, ScintYieldRatio, ScintByParticleType, the per-particle yields and fast shares,
+    ScintResolutionScale) and its
     ReflectiveSurfaces (what lumen_tpc reads) from lardataalg's larproperties.fcl, each with its lines;
     ``experiments``: {name: fcl} of EXPERIMENTS, each experiment's scintillation overrides written as ``lar.<name>``."""
     src = f"{LARDATAALG} lardataalg/DetectorInfo/larproperties.fcl"
@@ -491,6 +492,7 @@ def optics_tables(fcl, experiments=None):
     tc = fcl_values(fcl, ("ScintFastTimeConst", "ScintSlowTimeConst"))
     rv, rl = fcl_values(fcl, ("ScintYieldRatio",))["ScintYieldRatio"]
     bp, bl = Text(fcl).one(r"^\s*ScintByParticleType:\s*(true|false)\b")
+    sv, sl = fcl_values(fcl, ("ScintResolutionScale",))["ScintResolutionScale"]
     kinds = PARTICLES
     pp = fcl_values(fcl, tuple(f"{k}{s}" for k in kinds for s in ("ScintYield", "ScintYieldRatio")))
     per_particle = {k: dict(yield_per_MeV=pp[f"{k}ScintYield"][0], fast_fraction=pp[f"{k}ScintYieldRatio"][0],
@@ -536,6 +538,9 @@ def optics_tables(fcl, experiments=None):
                                          note="true: each particle's yield and fast share (per_particle) in place "
                                          "of ScintYield and ScintYieldRatio"),
                 "per_particle": per_particle,
+                "resolution_scale": dict(value=sv, source=f"{src}:{sl} (ScintResolutionScale)",
+                                         note="the width of the photon count about its mean, in Poisson widths; "
+                                         "larsim's MaterialPropertyLoader gives it to Geant4 as LAr's RESOLUTIONSCALE"),
             }
         },
         "surfaces": {
